@@ -1,0 +1,23 @@
+development:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: epa_api_development
+  pool: 5
+  username:
+
+test:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: epa_api_tesst
+  pool: 5
+  username:
+
+production:
+  adapter: postgresql
+  host: localhost
+  encoding: unicode
+  database: epa_api_production
+  pool: 5
+  username:
