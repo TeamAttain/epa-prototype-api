@@ -6,6 +6,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 gem 'pg'
 gem 'unicorn'
+gem 'taperole'
 
 group :test do
   gem 'rspec-rails'
