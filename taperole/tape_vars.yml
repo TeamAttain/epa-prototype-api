@@ -1,0 +1,11 @@
+app_name: epa-prototype
+
+# Rails App Configs
+be_app_repo: git@github.com:smashingboxes/epa-prototype-api.git
+
+# HTML/JS App Configs
+# Uncomment if you want to deploy a JS/HTML App
+fe_app_repo: git@github.com:smashingboxes/epa-prototype-frontend.git
+fe_app_branch: master
+
+fe_build_command: "ember build"
