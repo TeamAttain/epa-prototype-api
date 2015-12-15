@@ -12,6 +12,7 @@ class AirQualityObservation < ActiveRecord::Base
   end
 
   private
+
   def set_category
     air_quality_ranges = [
       (0..50),
@@ -21,7 +22,7 @@ class AirQualityObservation < ActiveRecord::Base
       (201..300),
       (301..500)
     ]
-    range = air_quality_ranges.select{ |x| x.include? self.aqi }.first
+    range = air_quality_ranges.find { |x| x.include? aqi }
     categories[air_quality_ranges.find_index(range)]
   end
 end

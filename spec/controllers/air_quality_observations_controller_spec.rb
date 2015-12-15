@@ -11,7 +11,7 @@ describe AirQualityObservationsController do
     it 'gets all data' do
       get :index
       expect(
-        json.map{ |record| record['id'] }
+        json.map { |record| record['id'] }
       ).to eq AirQualityObservation.all.map(&:id)
     end
   end
