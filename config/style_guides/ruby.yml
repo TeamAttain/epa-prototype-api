@@ -12,7 +12,6 @@ Style/CollectionMethods:
   PreferredMethods:
     collect: map
     collect!: map!
-    find: detect
     find_all: select
     reduce: inject
 Style/DotPosition:

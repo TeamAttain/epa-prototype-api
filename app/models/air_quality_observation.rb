@@ -22,7 +22,7 @@ class AirQualityObservation < ActiveRecord::Base
       (201..300),
       (301..500)
     ]
-    range = air_quality_ranges.find { |x| x.include? aqi }
+    range = air_quality_ranges.detect { |x| x.include? aqi }
     categories[air_quality_ranges.find_index(range)]
   end
 end
