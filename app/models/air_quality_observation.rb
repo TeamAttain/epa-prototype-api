@@ -1,5 +1,8 @@
 class AirQualityObservation < ActiveRecord::Base
+  acts_as_mappable
+
   before_save :set_category
+
   def categories
     [
       'Good',
@@ -9,6 +12,10 @@ class AirQualityObservation < ActiveRecord::Base
       'Very Unhealthy',
       'Hazardous'
     ]
+  end
+
+  def closest(options = {})
+    geo_scope(options).order("#{distance_column_name} asc").limit(1)
   end
 
   private

@@ -7,6 +7,7 @@ gem 'spring', :group => :development
 gem 'pg'
 gem 'unicorn'
 gem 'taperole'
+gem 'geokit-rails'
 
 group :development, :test do
   gem 'pry-byebug'
