@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe AirQualityObservationsController do
+describe Api::AirQualityObservationsController do
   let(:json) { JSON.parse(response.body) }
 
   before do

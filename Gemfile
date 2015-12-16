@@ -12,6 +12,7 @@ gem 'geokit-rails', github: 'geokit/geokit-rails'
 group :development, :test do
   gem 'pry-byebug'
   gem 'timecop'
+  gem 'awesome_print'
 end
 
 group :test do
