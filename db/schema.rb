@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151214205120) do
+ActiveRecord::Schema.define(version: 20151216214824) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,9 +21,9 @@ ActiveRecord::Schema.define(version: 20151214205120) do
     t.string   "category"
     t.datetime "date_observed"
     t.integer  "hour_observed"
-    t.float    "latitude"
+    t.float    "lat"
     t.string   "local_time_zone"
-    t.float    "longitude"
+    t.float    "lng"
     t.string   "parameter_name"
     t.string   "reporting_area"
     t.string   "state_code"

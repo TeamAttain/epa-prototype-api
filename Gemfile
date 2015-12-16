@@ -7,10 +7,11 @@ gem 'spring', :group => :development
 gem 'pg'
 gem 'unicorn'
 gem 'taperole'
-gem 'geokit-rails'
+gem 'geokit-rails', github: 'geokit/geokit-rails'
 
 group :development, :test do
   gem 'pry-byebug'
+  gem 'timecop'
 end
 
 group :test do

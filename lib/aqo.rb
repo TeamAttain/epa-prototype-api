@@ -1,0 +1,2 @@
+class AQO < AirQualityObservation
+end
