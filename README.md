@@ -77,7 +77,7 @@ rails s
                  "logId":  1154701,
                   "name":  "Treadmill, 0% Incline",
              "startTime":  "00:25",
-              "location":  'outside',
+              "location":  "outside",
                  "steps":  3783
     },
     {
@@ -92,7 +92,7 @@ rails s
                  "logId": 1254308,
                   "name": "Treadmill, 5% Incline",
              "startTime": "01:15",
-              "location": 'inside',
+              "location": "inside",
                  "steps": 40098
     }
   ]
