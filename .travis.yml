@@ -13,4 +13,4 @@ script:
 addons:
   postgresql: "9.3"
   code_climate:
-    repo_token: ab9afa0db2cdcdcfd0136d85af7c4358f3404610
+    repo_token: 299bc11317f37393fbd2a18d68ab95fe0bd9b8d0231bfad73d7b4187141c7abd
