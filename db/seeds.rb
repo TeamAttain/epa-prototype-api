@@ -1,7 +1,30 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
+sb_lat = 35.9927473
+sb_lng = -78.9061682
+
+100.times do
+  AQO.create!(
+    aqi: (0..200).to_a.sample,
+    date_observed: Faker::Time.between(Time.zone.now - 300, Time.zone.now),
+    hour_observed: (0..25).to_a.sample,
+    lat: Faker::Address.latitude,
+    lng: Faker::Address.longitude,
+    local_time_zone: Faker::Address.time_zone,
+    parameter_name: '03',
+    reporting_area: Faker::Address.city,
+    state_code: Faker::Address.state_abbr
+  )
+end
+
+14.times do
+  AQO.create!(
+    aqi: (0..200).to_a.sample,
+    date_observed: Faker::Time.between(Time.zone.now - 300, Time.zone.now),
+    hour_observed: (0..25).to_a.sample,
+    lat: sb_lat,
+    lng: sb_lng,
+    local_time_zone: Faker::Address.time_zone,
+    parameter_name: '03',
+    reporting_area: "Smashing Boxes",
+    state_code: Faker::Address.state_abbr
+  )
+end

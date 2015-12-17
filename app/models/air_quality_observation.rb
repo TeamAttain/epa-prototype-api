@@ -1,5 +1,8 @@
 class AirQualityObservation < ActiveRecord::Base
+  acts_as_mappable
+
   before_save :set_category
+
   def categories
     [
       'Good',
