@@ -56,3 +56,45 @@ rails s
   }
 ]
 ```
+
+### POST Activity
+
+**POST:** /api/activities
+
+**Response**
+```json
+{
+  activities: [
+    {
+      'activityId'       => 51007,
+      'activityParentId' => 90019,
+      'calories'         => 230,
+      'description'      => "7mph",
+      'distance'         => 2.04,
+      'duration'         => 1097053,
+      'hasStartTime'     => true,
+      'isFavorite'       => true,
+      'logId'            => 1154701,
+      'name'             => "Treadmill, 0% Incline",
+      'startTime'        => "00:25",
+      'location'         => 'outside',
+      'steps'            => 3783
+    },
+    {
+      'activityId'       => 9000,
+      'activityParentId' => 87771,
+      'calories'         => 400,
+      'description'      => "8mph",
+      'distance'         => 3.12,
+      'duration'         => 10088753,
+      'hasStartTime'     => true,
+      'isFavorite'       => false,
+      'logId'            => 1254308,
+      'name'             => "Treadmill, 5% Incline",
+      'startTime'        => "01:15",
+      'location'         => 'inside',
+      'steps'            => 40098
+    }
+  ]
+}
+```
