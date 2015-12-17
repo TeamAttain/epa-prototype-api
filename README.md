@@ -25,34 +25,34 @@ rails s
 ```json
 [
   {
-                "aqi" => 35,
-           "category" => nil,
-         "created_at" => "2015-12-24T22:23:53.007Z",
-      "date_observed" => "2015-12-24T22:20:17.542Z",
-      "hour_observed" => 14,
-                 "id" => 19,
-                "lat" => 40.5,
-                "lng" => 47.5,
-    "local_time_zone" => "Europe/Belgrade",
-     "parameter_name" => "03",
-     "reporting_area" => "R'lyeh",
-         "state_code" => "ME",
-         "updated_at" => "2015-12-24T22:23:53.007Z"
+                "aqi": 35,
+           "category": nil,
+         "created_at": "2015-12-24T22:23:53.007Z",
+      "date_observed": "2015-12-24T22:20:17.542Z",
+      "hour_observed": 14,
+                 "id": 19,
+                "lat": 40.5,
+                "lng": 47.5,
+    "local_time_zone": "Europe/Belgrade",
+     "parameter_name": "03",
+     "reporting_area": "R'lyeh",
+         "state_code": "ME",
+         "updated_at": "2015-12-24T22:23:53.007Z"
   },
   {
-                "aqi" => 62,
-           "category" => nil,
-         "created_at" => "2015-12-24T22:23:53.007Z",
-      "date_observed" => "2015-12-24T22:22:22.108Z",
-      "hour_observed" => 22,
-                 "id" => 20,
-                "lat" => 40.5,
-                "lng" => 47.5,
-    "local_time_zone" => "Pacific/Tongatapu",
-     "parameter_name" => "03",
-     "reporting_area" => "R'lyeh",
-         "state_code" => "RI",
-         "updated_at" => "2015-12-24T22:23:53.007Z"
+                "aqi": 62,
+           "category": nil,
+         "created_at": "2015-12-24T22:23:53.007Z",
+      "date_observed": "2015-12-24T22:22:22.108Z",
+      "hour_observed": 22,
+                 "id": 20,
+                "lat": 40.5,
+                "lng": 47.5,
+    "local_time_zone": "Pacific/Tongatapu",
+     "parameter_name": "03",
+     "reporting_area": "R'lyeh",
+         "state_code": "RI",
+         "updated_at": "2015-12-24T22:23:53.007Z"
   }
 ]
 ```
@@ -64,36 +64,36 @@ rails s
 **Response**
 ```json
 {
-  activities: [
+  "activities": [
     {
-      'activityId'       => 51007,
-      'activityParentId' => 90019,
-      'calories'         => 230,
-      'description'      => "7mph",
-      'distance'         => 2.04,
-      'duration'         => 1097053,
-      'hasStartTime'     => true,
-      'isFavorite'       => true,
-      'logId'            => 1154701,
-      'name'             => "Treadmill, 0% Incline",
-      'startTime'        => "00:25",
-      'location'         => 'outside',
-      'steps'            => 3783
+            "activityId":  51007,
+      "activityParentId":  90019,
+              "calories":  230,
+            description":  "7mph",
+              "distance":  2.04,
+              "duration":  1097053,
+          "hasStartTime":  true,
+            "isFavorite":  true,
+                 "logId":  1154701,
+                  "name":  "Treadmill, 0% Incline",
+             "startTime":  "00:25",
+              "location":  'outside',
+                 "steps":  3783
     },
     {
-      'activityId'       => 9000,
-      'activityParentId' => 87771,
-      'calories'         => 400,
-      'description'      => "8mph",
-      'distance'         => 3.12,
-      'duration'         => 10088753,
-      'hasStartTime'     => true,
-      'isFavorite'       => false,
-      'logId'            => 1254308,
-      'name'             => "Treadmill, 5% Incline",
-      'startTime'        => "01:15",
-      'location'         => 'inside',
-      'steps'            => 40098
+            "activityId": 9000,
+      "activityParentId": 87771,
+              "calories": 400,
+           "description": "8mph",
+              "distance": 3.12,
+              "duration": 10088753,
+          "hasStartTime": true,
+            "isFavorite": false,
+                 "logId": 1254308,
+                  "name": "Treadmill, 5% Incline",
+             "startTime": "01:15",
+              "location": 'inside',
+                 "steps": 40098
     }
   ]
 }
