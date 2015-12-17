@@ -26,7 +26,7 @@ rails s
 [
   {
                 "aqi": 35,
-           "category": nil,
+           "category": "",
          "created_at": "2015-12-24T22:23:53.007Z",
       "date_observed": "2015-12-24T22:20:17.542Z",
       "hour_observed": 14,
@@ -41,7 +41,7 @@ rails s
   },
   {
                 "aqi": 62,
-           "category": nil,
+           "category": "",
          "created_at": "2015-12-24T22:23:53.007Z",
       "date_observed": "2015-12-24T22:22:22.108Z",
       "hour_observed": 22,
@@ -69,7 +69,7 @@ rails s
             "activityId":  51007,
       "activityParentId":  90019,
               "calories":  230,
-            description":  "7mph",
+           "description":  "7mph",
               "distance":  2.04,
               "duration":  1097053,
           "hasStartTime":  true,
