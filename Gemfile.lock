@@ -44,6 +44,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.4.0)
     arel (6.0.3)
     awesome_print (1.6.1)
     builder (3.2.2)
@@ -52,6 +53,8 @@ GEM
       simplecov (>= 0.7.1, < 1.0.0)
     coderay (1.1.0)
     concurrent-ruby (1.0.0)
+    crack (0.4.3)
+      safe_yaml (~> 1.0.0)
     database_cleaner (1.5.1)
     diff-lcs (1.2.5)
     docile (1.1.5)
@@ -66,6 +69,10 @@ GEM
     geokit (1.10.0)
     globalid (0.3.6)
       activesupport (>= 4.1.0)
+    hashdiff (0.2.3)
+    httparty (0.13.7)
+      json (~> 1.8)
+      multi_xml (>= 0.5.2)
     i18n (0.7.0)
     json (1.8.3)
     kgio (2.10.0)
@@ -77,6 +84,7 @@ GEM
     mime-types (2.99)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
+    multi_xml (0.5.5)
     nokogiri (1.6.7)
       mini_portile2 (~> 2.0.0.rc2)
     pg (0.18.4)
@@ -136,6 +144,7 @@ GEM
       rspec-mocks (~> 3.4.0)
       rspec-support (~> 3.4.0)
     rspec-support (3.4.1)
+    safe_yaml (1.0.4)
     simplecov (0.11.1)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -160,6 +169,10 @@ GEM
       kgio (~> 2.6)
       rack
       raindrops (~> 0.7)
+    webmock (1.22.3)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+      hashdiff
 
 PLATFORMS
   ruby
@@ -171,6 +184,7 @@ DEPENDENCIES
   factory_girl_rails (~> 4.0)
   faker
   geokit-rails!
+  httparty
   pg
   pry-byebug
   rails (= 4.2.5)
@@ -180,6 +194,7 @@ DEPENDENCIES
   taperole
   timecop
   unicorn
+  webmock
 
 BUNDLED WITH
    1.10.6

@@ -8,6 +8,7 @@ gem 'pg'
 gem 'unicorn'
 gem 'taperole'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
+gem 'httparty'
 
 group :development, :test do
   gem 'pry-byebug'
@@ -21,4 +22,5 @@ group :test do
   gem "factory_girl_rails", "~> 4.0"
   gem 'database_cleaner'
   gem "codeclimate-test-reporter"
+  gem 'webmock'
 end
