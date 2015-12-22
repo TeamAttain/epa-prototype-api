@@ -9,6 +9,11 @@ require 'rspec/rails'
 ActiveRecord::Migration.maintain_test_schema!
 
 RSpec.configure do |config|
+  SmarfDoc.config do |c|
+    c.template_file = 'spec/smarf_template.md.erb'
+    c.output_file   = 'README.md'
+  end
+
   config.include FactoryGirl::Syntax::Methods
 
   config.use_transactional_fixtures = true
@@ -32,4 +37,10 @@ RSpec.configure do |config|
   config.after(:each) do
     DatabaseCleaner.clean
   end
+
+  config.after(:each, type: :controller) do
+    SmarfDoc.run!(request, response)
+  end
+
+  config.after(:suite) { SmarfDoc.finish! }
 end

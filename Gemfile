@@ -19,6 +19,7 @@ group :development, :test do
 end
 
 group :test do
+  gem 'smarf_doc', github: 'RickCarlino/smarf_doc'
   gem 'rspec-rails'
   gem "factory_girl_rails", "~> 4.0"
   gem 'database_cleaner'

@@ -1,4 +1,10 @@
 GIT
+  remote: git://github.com/RickCarlino/smarf_doc.git
+  revision: 88394bf9dbadf1fa4b89c370ffc5ae12d0c0611e
+  specs:
+    smarf_doc (0.0.1)
+
+GIT
   remote: git://github.com/geokit/geokit-rails.git
   revision: 45ae9852591d0682efec753bcdeaf09a3946c524
   specs:
@@ -184,6 +190,7 @@ DEPENDENCIES
   rails (= 4.2.5)
   rails-api
   rspec-rails
+  smarf_doc!
   spring
   taperole
   timecop
