@@ -22,7 +22,7 @@ describe AirQualityObservation do
 
   describe '.update_observations!' do
     before do
-      allow(AirnowApiAdapter).to receive(:observed_zip_codes).and_return(['12201', '94203'])
+      allow(AirnowApiAdapter).to receive(:observed_zip_codes).and_return(%w(12201 94203))
       stub_aqi_call
     end
 

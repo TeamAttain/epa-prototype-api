@@ -10,12 +10,14 @@ class AirnowApiAdapter
   end
 
   def readings_for(zip_code)
-    self.class.get("/aq/observation/zipCode/current", {
-      query: query_params.merge({
-        distance: '25',
-        zipCode: zip_code
-      })
-    })
+    self.class.get("/aq/observation/zipCode/current",
+      query: query_params.merge(
+        {
+          distance: '25',
+          zipCode: zip_code
+        }
+      )
+    )
   end
 
   def self.observed_zip_codes
