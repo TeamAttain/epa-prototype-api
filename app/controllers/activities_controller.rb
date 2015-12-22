@@ -5,6 +5,7 @@ class ActivitiesController < ApplicationController
         @last_activity = Activity.new(activity_params(activity))
         @last_activity.save!
       end
+      render json: ['success']
     end
 
   rescue ActiveRecord::RecordInvalid

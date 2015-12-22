@@ -1,0 +1,11 @@
+#### <%= request.method %> <%= request.path %>
+<%= note %>
+
+```json
+<%= JSON.pretty_generate(request.params.except(:controller, :action, :format)).to_s %>
+```
+
+Response: <%= response.status %>
+```json
+<%= JSON.pretty_generate(JSON.parse(response.body)) %>
+```
