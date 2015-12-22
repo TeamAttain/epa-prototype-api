@@ -13,26 +13,10 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def index
-    activities = Activity.where(date: Date.parse(params[:date]).to_time_in_current_zone.all_day)
-    if activities.present?
-      inside = activities.count { |activity| activity.location == 'inside' }
-      outside = activities.count { |activity| activity.location == 'outside' }
-      render json: {
-        activities: [
-          {
-            id: 1,
-            percentage_outside: (outside.to_f / (inside + outside).to_f) * 100,
-            inside: inside,
-            outside: outside
-          }
-        ]
-      }
-    else
-      render json: {
-        inside: 0,
-        outside: 0
-      }
-    end
+    calculate = ActivityPercentageCalculator.new(
+      Activity.where(date: Date.parse(params[:date]).in_time_zone.all_day)
+    )
+    render json: calculate.to_json
   end
 
   private

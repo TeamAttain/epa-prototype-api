@@ -1,6 +1,22 @@
 require 'rails_helper'
 
 describe Api::ActivitiesController do
+  let(:json) { JSON.parse(response.body) }
+  describe 'GET: /api/activities' do
+    let(:inside_activities) { Activity.where(location: 'inside').count }
+    let(:outside_activities) { Activity.where(location: 'outside').count }
+
+    before do
+      @activities = create_list(:activity, 20)
+    end
+
+    it 'gets activities for a specific date' do
+      get :index, date: Time.zone.now.strftime("%d/%m/%Y")
+      expect(json['activities'].first['inside']).to eq inside_activities
+      expect(json['activities'].first['outside']).to eq outside_activities
+    end
+  end
+
   describe 'POST: /api/activities' do
     let(:post_data) do
       {
