@@ -48,6 +48,7 @@ describe Api::ActivitiesController do
       end
 
       it 'demands lng and lat' do
+        SmarfDoc.skip
         post :create, post_data
         expect(
           JSON.parse(response.body)
@@ -72,6 +73,7 @@ describe Api::ActivitiesController do
           }
         end
         it 'will create none of the activities' do
+          SmarfDoc.skip
           expect do
             post :create, post_data
           end.to_not change { Activity.count }
