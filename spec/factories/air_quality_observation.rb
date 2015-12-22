@@ -5,7 +5,6 @@ FactoryGirl.define do
     hour_observed { (0..25).to_a.sample }
     lat { Faker::Address.latitude }
     lng { Faker::Address.longitude }
-    zip_code { Faker::Address.zip_code }
     local_time_zone { Faker::Address.time_zone }
     parameter_name '03'
     reporting_area { Faker::Address.city }
