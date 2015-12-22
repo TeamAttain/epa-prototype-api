@@ -6,6 +6,7 @@ class Api::ActivitiesController < ApplicationController
         @last_activity.save!
       end
     end
+    render json: [ 'success!' ]
 
   rescue ActiveRecord::RecordInvalid
     render json: @last_activity.errors.to_hash
