@@ -2,13 +2,6 @@ class AirnowApiAdapter
   include HTTParty
   base_uri 'http://www.airnowapi.org'
 
-  def query_params
-    {
-      'API_KEY': Rails.application.secrets.air_now_api_key,
-      format: "application/json"
-    }
-  end
-
   def readings_for(zip_code)
     self.class.get(
       "/aq/observation/zipCode/current",
@@ -72,5 +65,14 @@ class AirnowApiAdapter
       '53701',  # Wisconsin Wis.  WI  Madison
       '82001'   # Wyoming Wyo.  WY  Cheyenne
     ]
+  end
+
+  private
+
+  def query_params
+    {
+      'API_KEY': Rails.application.secrets.air_now_api_key,
+      format: "application/json"
+    }
   end
 end
