@@ -22,6 +22,7 @@ describe Api::AirQualityObservationsController do
     end
 
     it 'only returns data from past 7 days' do
+      SmarfDoc.skip
       old_observations = nearby_observations
       Timecop.freeze(Time.zone.now + 8.days) do
         fresh_observations = create_list(
