@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 describe Api::AirQualityObservationsController do
-  let(:json) { JSON.parse(response.body) }
+  let(:json) { JSON.parse(response.body)['air_quality_observations'] }
 
   before do
     create_list(:air_quality_observation, 10)

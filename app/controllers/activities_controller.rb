@@ -24,6 +24,8 @@ class ActivitiesController < ApplicationController
       duration: parameters[:duration],
       has_start_time: parameters[:hasStartTime],
       is_favorite: parameters[:isFavorite],
+      lat: parameters[:lat],
+      lng: parameters[:lng],
       log_id: parameters[:logId],
       name: parameters[:name],
       start_time: parameters[:startTime],

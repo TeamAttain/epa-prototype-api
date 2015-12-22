@@ -3,6 +3,8 @@ class AirQualityObservation < ActiveRecord::Base
 
   before_save :set_category
 
+  scope :past_seven_days, -> { where('created_at >= ?', 1.week.ago) }
+
   def self.update_observations!
     client = AirnowApiAdapter.new
     AirnowApiAdapter.observed_zip_codes.each do |code|
@@ -18,6 +20,7 @@ class AirQualityObservation < ActiveRecord::Base
           aqi: reading['Category']['Number'],
           lat: reading["Latitude"],
           local_time_zone: reading["LocalTimeZone"],
+          zip_code: code,
           lng: reading["Longitude"]
         )
       end
@@ -28,7 +31,7 @@ class AirQualityObservation < ActiveRecord::Base
     [
       'Good',
       'Moderate',
-      'Unhealthy for Sensitve Groups',
+      'Unhealthy for Sensitive Groups',
       'Unhealthy',
       'Very Unhealthy',
       'Hazardous'
@@ -47,6 +50,6 @@ class AirQualityObservation < ActiveRecord::Base
       (301..500)
     ]
     range = air_quality_ranges.detect { |x| x.include? aqi }
-    categories[air_quality_ranges.find_index(range)]
+    self.category = categories[air_quality_ranges.find_index(range)]
   end
 end

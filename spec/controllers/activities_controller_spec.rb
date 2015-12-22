@@ -1,24 +1,14 @@
 require 'rails_helper'
 
-describe ActivitiesController do
+describe Api::ActivitiesController do
   describe 'POST: /api/activities' do
     let(:post_data) do
       {
         activities: [
           {
-            activityId: 51_007,
-            activityParentId: 90_019,
-            calories: 230,
-            description: "7mph",
-            distance: 2.04,
-            duration: 1_097_053,
-            hasStartTime: true,
-            isFavorite: true,
-            logId: 1_154_701,
-            name: "Treadmill, 0% Incline",
-            startTime: "00:25",
+            lat: Faker::Address.latitude,
+            lng: Faker::Address.longitude,
             location: 'outside',
-            steps: 3_783
           }
         ]
       }
@@ -30,40 +20,37 @@ describe ActivitiesController do
       end.to change { Activity.count }.by(1)
     end
 
+    context 'without lng and lat' do
+      let(:post_data) do
+        {
+          activities: [
+            {
+              location: 'outside',
+            }
+          ]
+        }
+      end
+
+      it 'demands lng and lat' do
+        post :create, post_data
+        expect(
+          JSON.parse(response.body)
+        ).to eq("lat" => ["can't be blank"], "lng" => ["can't be blank"])
+      end
+    end
+
     context 'multiple activities' do
       context 'when one of those activities is invalid' do
         let(:post_data) do
           {
             activities: [
               {
-                activityId: 51_007,
-                activityParentId: 90_019,
-                calories: 230,
-                description: "7mph",
-                distance: 2.04,
-                duration: 1_097_053,
-                hasStartTime: true,
-                isFavorite: true,
-                logId: 1_154_701,
-                name: "Treadmill, 0% Incline",
-                startTime: "00:25",
-                location: 'outside',
-                steps: 3_783
+                lat: Faker::Address.latitude,
+                lng: Faker::Address.longitude,
               },
               {
-                activityId: 51_007,
-                activityParentId: 90_019,
-                calories: 230,
-                description: "7mph",
-                distance: 2.04,
-                duration: 1_097_053,
-                hasStartTime: true,
-                isFavorite: true,
-                logId: 1_154_701,
-                name: "Treadmill, 0% Incline",
-                startTime: "00:25",
-                location: 'junk',
-                steps: 3_783
+                lat: Faker::Address.latitude,
+                lng: Faker::Address.longitude,
               }
             ]
           }

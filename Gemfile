@@ -10,6 +10,7 @@ gem 'taperole'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'httparty'
 gem 'whenever'
+gem 'active_model_serializers'
 
 group :development, :test do
   gem 'pry-byebug'
