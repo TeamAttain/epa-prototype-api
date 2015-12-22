@@ -6,17 +6,17 @@ class Api::ActivitiesController < ApplicationController
         @last_activity.save!
       end
     end
-    render json: [ 'success!' ]
+    render json: ['success!']
 
   rescue ActiveRecord::RecordInvalid
     render json: @last_activity.errors.to_hash
   end
 
   def index
-    activities = Activity.where(date: Date.parse(params[:date]).to_time.all_day)
+    activities = Activity.where(date: Date.parse(params[:date]).to_time_in_current_zone.all_day)
     if activities.present?
-      inside = activities.select { |activity| activity.location == 'inside' }.count
-      outside = activities.select { |activity| activity.location == 'outside' }.count
+      inside = activities.count { |activity| activity.location == 'inside' }
+      outside = activities.count { |activity| activity.location == 'outside' }
       render json: {
         activities: [
           {
