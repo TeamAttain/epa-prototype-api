@@ -1,0 +1,3 @@
+- name: Wheneverize
+  command: chdir={{ be_app_path }}
+    bash -lc "RAILS_ENV={{be_app_env}} bundle exec whenever --update-crontab"

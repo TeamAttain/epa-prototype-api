@@ -9,6 +9,7 @@ gem 'unicorn'
 gem 'taperole'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'httparty'
+gem 'whenever'
 
 group :development, :test do
   gem 'pry-byebug'
