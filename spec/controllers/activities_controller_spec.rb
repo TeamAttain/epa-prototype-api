@@ -2,6 +2,7 @@ require 'rails_helper'
 
 describe Api::ActivitiesController do
   let(:json) { JSON.parse(response.body) }
+
   describe 'GET: /api/activities' do
     let(:inside_activities) { Activity.where(location: 'inside').count }
     let(:outside_activities) { Activity.where(location: 'outside').count }
@@ -51,7 +52,7 @@ describe Api::ActivitiesController do
         SmarfDoc.skip
         post :create, post_data
         expect(
-          JSON.parse(response.body)
+          json
         ).to eq("lat" => ["can't be blank"], "lng" => ["can't be blank"])
       end
     end
@@ -78,7 +79,7 @@ describe Api::ActivitiesController do
             post :create, post_data
           end.to_not change { Activity.count }
           expect(
-            JSON.parse(response.body)
+            json
           ).to eq("location" => ["is not either 'inside' or 'outside'"])
         end
       end
