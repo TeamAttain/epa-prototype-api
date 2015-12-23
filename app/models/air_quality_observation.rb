@@ -20,7 +20,6 @@ class AirQualityObservation < ActiveRecord::Base
           aqi: reading['Category']['Number'],
           lat: reading["Latitude"],
           local_time_zone: reading["LocalTimeZone"],
-          zip_code: code,
           lng: reading["Longitude"]
         )
       end
