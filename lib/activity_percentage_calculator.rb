@@ -14,7 +14,7 @@ class ActivityPercentageCalculator
   end
 
   def percentage_of_outside_activities
-    (outside_activities.to_f / (inside_activities + outside_activities).to_f) * 100
+    ((outside_activities.to_f / (inside_activities + outside_activities).to_f) * 100).to_i
   end
 
   def to_json
