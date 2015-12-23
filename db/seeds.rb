@@ -11,6 +11,7 @@ sb_lng = -78.9061682
     local_time_zone: Faker::Address.time_zone,
     parameter_name: '03',
     reporting_area: Faker::Address.city,
+    zip_code: Faker::Address.zip_code,
     state_code: Faker::Address.state_abbr
   )
 end
@@ -26,5 +27,14 @@ end
     parameter_name: '03',
     reporting_area: "Smashing Boxes",
     state_code: Faker::Address.state_abbr
+  )
+end
+
+14.times do
+  Activity.create!(
+    lat: sb_lat,
+    lng: sb_lng,
+    location: %w(outside inside).sample,
+    date: Time.zone.now
   )
 end

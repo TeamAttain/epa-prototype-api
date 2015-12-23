@@ -4,4 +4,6 @@ class Activity < ActiveRecord::Base
               in: %w(inside outside),
               message: "is not either 'inside' or 'outside'"
             }
+  validates :lng, presence: true
+  validates :lat, presence: true
 end

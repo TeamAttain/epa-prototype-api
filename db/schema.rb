@@ -11,27 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151217164235) do
+ActiveRecord::Schema.define(version: 20151222212100) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "activities", force: :cascade do |t|
-    t.integer  "fb_activity_id"
-    t.integer  "fb_activity_parent_id"
-    t.integer  "calories"
-    t.string   "description"
-    t.float    "distance"
-    t.integer  "duration"
-    t.boolean  "has_start_time"
-    t.integer  "log_id"
-    t.boolean  "is_favorite"
-    t.string   "name"
-    t.string   "start_time"
-    t.integer  "steps"
+    t.float    "lat"
+    t.float    "lng"
     t.string   "location"
-    t.datetime "created_at",            null: false
-    t.datetime "updated_at",            null: false
+    t.datetime "date"
   end
 
   create_table "air_quality_observations", force: :cascade do |t|
@@ -47,6 +36,7 @@ ActiveRecord::Schema.define(version: 20151217164235) do
     t.string   "state_code"
     t.datetime "created_at",      null: false
     t.datetime "updated_at",      null: false
+    t.string   "zip_code"
   end
 
 end
