@@ -17,7 +17,7 @@ describe Api::ActivitiesController do
       end
 
       it 'will only get activities near zip code' do
-        get :index, date: Time.zone.now.strftime("%d/%m/%Y"), zip_code: 27701
+        get :index, date: Time.zone.now.strftime("%d/%m/%Y"), zip_code: '27701'
         expect(json['activities'].first['inside']).to eq 1
         expect(json['activities'].first['outside']).to eq 1
       end
