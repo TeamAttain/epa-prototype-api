@@ -11,7 +11,7 @@ ActiveRecord::Migration.maintain_test_schema!
 RSpec.configure do |config|
   SmarfDoc.config do |c|
     c.template_file = 'spec/smarf_template.md.erb'
-    c.output_file   = 'epa-prototype-api.wiki/Home.md.erb'
+    c.output_file   = 'epa-prototype-api.wiki/Home.md'
   end
 
   config.include FactoryGirl::Syntax::Methods
