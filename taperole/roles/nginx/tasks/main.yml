@@ -1,0 +1,34 @@
+- name: Enable nginx PPA
+  apt_repository: repo=ppa:nginx/stable
+  tags: [nginx]
+
+- name: Install nginx
+  apt: name=nginx state=present
+  tags: [nginx]
+
+- name: Ditch default nginx site enabled
+  file: path=/etc/nginx/sites-enabled/default state=absent
+  tags: [nginx]
+
+- name: Configure App nginx
+  template: src=nginx_unicorn.j2 dest=/etc/nginx/sites-enabled/{{ app_name }}
+  tags: [nginx]
+
+- name: Install monit nginx config
+  template: src=nginx_monit.j2
+            dest=/etc/monit/conf.d/nginx
+            mode=u=rw,g=r,o=r
+  register: nginx_monit_config
+
+- name: Reload Monit
+  command: bash -lc "monit reload && sleep 2"
+  when: nginx_monit_config.changed
+
+- name: Stop nginx
+  service: name=nginx state=stopped
+  tags: [restart_nginx]
+
+- name: Start nginx
+  remote_user: "{{ deployer_user.name }}"
+  command: bash -lc "sudo monit start nginx"
+  tags: [restart_nginx]

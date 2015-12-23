@@ -1,0 +1,42 @@
+{% if be_app_repo is defined %}
+upstream unicorn {
+  server unix:{{unicorn_sockfile}} fail_timeout=0;
+}
+{% endif %}
+
+server {
+  listen 80 default deferred;
+
+  if (-f $document_root/system/maintenance.html) {
+    return 503;
+  }
+  error_page 503 @maintenance;
+  location @maintenance {
+    rewrite  ^(.*)$  /system/maintenance.html last;
+    break;
+  }
+
+  location ~ /(admin|api) {
+    proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+    proxy_set_header Host $http_host;
+    proxy_redirect off;
+    proxy_pass http://unicorn;
+  }
+
+  location / {
+    root {{ fe_app_path }}/dist;
+    try_files $uri $uri/ /index.html =404;
+  }
+
+  error_page 500 502 503 504 /500.html;
+  client_max_body_size 4G;
+  keepalive_timeout 10;
+  if (-f $document_root/system/maintenance.html) {
+    return 503;
+  }
+  error_page 503 @maintenance;
+  location @maintenance {
+    rewrite  ^(.*)$  /system/maintenance.html last;
+    break;
+  }
+}
