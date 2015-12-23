@@ -9,7 +9,13 @@ describe Api::AirQualityObservationsController do
 
   describe 'index' do
     let!(:nearby_observations) do
-      create_list(:air_quality_observation, 5, reporting_area: "R'lyeh", lat: 40.5, lng: 47.5)
+      create_list(
+        :air_quality_observation,
+        5,
+        reporting_area: "R'lyeh",
+        lat: 40.5,
+        lng: 47.5
+      )
     end
     let(:lat) { nearby_observations.first.lat + 1 }
     let(:lng) { nearby_observations.first.lng + 1 }

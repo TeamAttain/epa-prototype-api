@@ -7,14 +7,20 @@ describe Api::ActivitiesController do
     let(:inside_activities) { Activity.where(location: 'inside').count }
     let(:outside_activities) { Activity.where(location: 'outside').count }
 
-    before do
-      @activities = create_list(:activity, 20)
-    end
+    context 'with zip code' do
+      before do
+        # Tokyo
+        create_list(:activity, 20, lat: 35.6833, lng: 39.6833)
+        # SB
+        Activity.create(date: Time.zone.now, location: 'inside', lat: 35.9927473, lng: -78.9061682)
+        Activity.create(date: Time.zone.now, location: 'outside', lat: 35.9927473, lng: -78.9061682)
+      end
 
-    it 'gets activities for a specific date' do
-      get :index, date: Time.zone.now.strftime("%d/%m/%Y")
-      expect(json['activities'].first['inside']).to eq inside_activities
-      expect(json['activities'].first['outside']).to eq outside_activities
+      it 'will only get activities near zip code' do
+        get :index, date: Time.zone.now.strftime("%d/%m/%Y"), zip_code: 27701
+        expect(json['activities'].first['inside']).to eq 1
+        expect(json['activities'].first['outside']).to eq 1
+      end
     end
   end
 

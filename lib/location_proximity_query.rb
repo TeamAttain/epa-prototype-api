@@ -1,4 +1,4 @@
-class AqoLocationProximityQuery
+class LocationProximityQuery
   attr_reader :observations, :zip_code, :lat, :lng
 
   def initialize(observations, opts = {})
@@ -9,11 +9,7 @@ class AqoLocationProximityQuery
   end
 
   def focal_point
-    if zip_code
-      observations.closest(origin: zip_code).first
-    else
-      observations.closest(origin: [lat, lng]).first
-    end
+    zip_code || [lat, lng]
   end
 
   def nearby

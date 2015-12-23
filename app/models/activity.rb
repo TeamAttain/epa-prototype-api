@@ -1,4 +1,6 @@
 class Activity < ActiveRecord::Base
+  acts_as_mappable
+
   validates :location,
             inclusion: {
               in: %w(inside outside),
