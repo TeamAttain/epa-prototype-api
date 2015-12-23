@@ -13,9 +13,11 @@ class Api::ActivitiesController < ApplicationController
   end
 
   def index
-    calculate = ActivityPercentageCalculator.new(
-      Activity.where(date: Date.parse(params[:date]).in_time_zone.all_day)
-    )
+    activities = LocationProximityQuery.new(
+      Activity.where(date: Date.parse(params[:date]).in_time_zone.all_day),
+      zip_code: params[:zip_code]
+    ).nearby
+    calculate = ActivityPercentageCalculator.new(activities)
     render json: calculate.to_json
   end
 
