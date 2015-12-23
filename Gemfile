@@ -11,12 +11,12 @@ gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'httparty'
 gem 'whenever'
 gem 'active_model_serializers'
+gem 'faker'
 
 group :development, :test do
   gem 'pry-byebug'
   gem 'timecop'
   gem 'awesome_print'
-  gem 'faker'
 end
 
 group :test do
