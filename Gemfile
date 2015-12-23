@@ -6,7 +6,7 @@ gem 'rails-api'
 gem 'spring', :group => :development
 gem 'pg'
 gem 'unicorn'
-gem 'taperole'
+gem 'taperole', '~> 1.3'
 gem 'geokit-rails', github: 'geokit/geokit-rails'
 gem 'httparty'
 gem 'whenever'
