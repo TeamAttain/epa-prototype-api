@@ -1,8 +1,8 @@
 class Api::AirQualityObservationsController < ApplicationController
   def index
-    location = AQO.closest(origin: [params[:lat], params[:lng]]).first
-    if location
-      render json: AQO.within(100, origin: location).where('created_at >= ?', 1.week.ago)
+    query = AqoLocationProximityQuery.new(AQO.past_seven_days, params)
+    if query.focal_point
+      render json: query.nearby
     else
       render json: []
     end
