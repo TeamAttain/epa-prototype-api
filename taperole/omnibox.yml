@@ -14,6 +14,7 @@
     - nginx
     - backend_install_essentials
     - frontend_install_essentials
+    - ember-cli
     - backend_checkout
     - unicorn_install
     - backend_config
