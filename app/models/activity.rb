@@ -8,4 +8,25 @@ class Activity < ActiveRecord::Base
             }
   validates :lng, presence: true
   validates :lat, presence: true
+
+  def self.gen_bogus_data!
+    AirnowApiAdapter.observed_zip_codes.each do |zip_code|
+      observation = AQO.where(zip_code: zip_code).first
+      next unless observation
+      rand(20..100).times do
+        Activity.create(
+          lat: observation.lat,
+          lng: observation.lng,
+          location: 'inside'
+        )
+      end
+      rand(20..100).times do
+        Activity.create(
+          lat: observation.lat,
+          lng: observation.lng,
+          location: 'outside'
+        )
+      end
+    end
+  end
 end

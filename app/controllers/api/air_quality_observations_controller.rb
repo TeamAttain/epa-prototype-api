@@ -1,6 +1,6 @@
 class Api::AirQualityObservationsController < ApplicationController
   def index
-    query = LocationProximityQuery.new(AQO.past_seven_days, params)
+    query = LocationProximityQuery.new(AQO.past_24_hours, params)
     if query.nearby
       render json: query.nearby
     else
