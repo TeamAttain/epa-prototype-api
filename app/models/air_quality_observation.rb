@@ -14,6 +14,7 @@ class AirQualityObservation < ActiveRecord::Base
           hour_observed: reading["HourObserved"],
           reporting_area: reading["ReportingArea"],
           parameter_name: reading["ParameterName"],
+          zip_code: code,
           state_code: reading["StateCode"]
         ).first_or_create(
           category: reading['Category']['Name'],
