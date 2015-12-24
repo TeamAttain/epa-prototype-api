@@ -14,7 +14,7 @@ class Api::ActivitiesController < ApplicationController
 
   def index
     activities = LocationProximityQuery.new(
-      Activity.where(date: Date.parse(params[:date]).in_time_zone.all_day),
+      Activity.past_24_hours,
       zip_code: params[:zip_code]
     ).nearby
     calculate = ActivityPercentageCalculator.new(activities)

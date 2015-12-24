@@ -3,7 +3,7 @@ class AirQualityObservation < ActiveRecord::Base
 
   before_save :set_category
 
-  scope :past_24_hours, -> { where('created_at >= ?', 24.hours.ago) }
+  scope :past_24_hours, -> { where('date_observed >= ?', 24.hours.ago) }
 
   def self.update_observations!
     client = AirnowApiAdapter.new
